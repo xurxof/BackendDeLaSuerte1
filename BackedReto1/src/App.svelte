@@ -58,8 +58,7 @@
 	}
 
 	const promise = getEmojiItems();
-
-	export let name;
+ 
 
 	//export let pageItemsResult;
 
@@ -82,7 +81,8 @@
 
 
  
-	<div class="footer"> <p> Solucion para Reto #1 de <a href="https://github.com/malandrinersdev/backend-de-la-suerte"> Backend de la suerte</a> | Visita la comunidad <a html="https://danielprimo.io">DanielPrimo.io</a> para otros retos en pantuflas como este | Done with ❤️ </p></div>
+	<div class="footer"> 
+		<p> Solucion para Reto #1 de <a href="https://github.com/malandrinersdev/backend-de-la-suerte"> Backend de la suerte</a> | Visita la comunidad <a href="https://danielprimo.io">DanielPrimo.io</a> para otros retos en pantuflas como este | Done with ❤️ </p></div>
   
 </main>
 
