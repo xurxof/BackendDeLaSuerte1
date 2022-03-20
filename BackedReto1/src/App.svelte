@@ -1,12 +1,10 @@
 
-<script>
-	// import HttpError from '$lib/HttpError'
+<script> 
 	async function getEmojiItems() {
 		var myHeaders = new Headers();
 		
 		var requestOptions = {
-			method: 'GET',
-			// headers: myHeaders,
+			method: 'GET', 
 			redirect: 'follow'
 			};
 
@@ -20,50 +18,16 @@
 		if(response.ok) {
 			console.log("OK");
 			return result;
-		}
-		/* Return HttpError if unsuccessful
-		*/ 
+		} 
 		else {
-			console.log("error"); 
-			//throw new HttpError(response, "Could not retrieve items at CMS.")
+			console.log("error");  
 		}
 	}
-
-	//import {getEmojiItems} from '$lib/loadHelper'
-	// import HttpError from '$lib/HttpError'
-	function load() {
-		//let tokenResult;
-		let pageItemsResult;
-		try {
-			// tokenResult = await getAccessToken(fetch)
-			result = getEmojiItems(); //), tokenResult.data["access_token"])
-			/* If successful, Pass props object to page. 
-			*/
-			return {
-				props: {
-					items: result,
-					//tokenResult: tokenResult
-				}
-			}
-		} catch (error) {
-			/* If unsuccessful, pass an object containing error and status to page.
-			*/
-			return {
-				/* Since Error does not contain the status, we use HttpError.
-				*/
-				// status: error instanceof HttpError ? error.response.status : 500,
-				error: error
-			}
-		}
-	}
+   
 
 	const promise = getEmojiItems();
  
-
-	//export let pageItemsResult;
-
-	//console.log(pageItemsResult);
-
+ 
 	import { fade, fly } from 'svelte/transition';
 </script>
 
