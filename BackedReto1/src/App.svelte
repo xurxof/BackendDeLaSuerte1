@@ -64,6 +64,8 @@
 	//export let pageItemsResult;
 
 	//console.log(pageItemsResult);
+
+	import { fade, fly } from 'svelte/transition';
 </script>
 
 <svelte:head>
@@ -72,12 +74,16 @@
 <main>
 	{#await promise}
  		<p>Loading...</p>
-	{:then items}
-		
-		<h1>{items.data[0].Emoji}</h1> 
+	{:then items} 
+		<h1 in:fly="{{ y: 200, duration: 2000 }}">{items.data[Math.floor(Math.random()*items.data.length)].Emoji}</h1> 
 	{:catch error}
 		<p style="color: red">{error.message}</p>
 	{/await}
+
+
+ 
+	<div class="footer"> <p> Solucion para Reto #1 de <a href="https://github.com/malandrinersdev/backend-de-la-suerte"> Backend de la suerte</a> | Visita la comunidad <a html="https://danielprimo.io">DanielPrimo.io</a> para otros retos en pantuflas como este | Done with ❤️ </p></div>
+  
 </main>
 
 <style>
@@ -91,9 +97,21 @@
 	h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
-		font-size: 4em;
+		font-size: 8em;
 		font-weight: 200;
 	}
+ 
+	p {
+		font-size: .8em;
+	}
+	.footer {  
+		position: fixed;  
+		left: 10px;  
+		bottom: 5px;  
+		right: 10px;   
+		width: 95%;    
+		text-align: center;  
+	} 
 
 	@media (min-width: 640px) {
 		main {
