@@ -56,7 +56,6 @@
 		console.log("incrementCount2", gameId);
 		var requestOptions = {
 			method: "PATCH",
-			redirect: "follow",
 			body: JSON.stringify({
 				current: count + 1,
 			}),
@@ -70,19 +69,28 @@
 		).then((response) => response.json());
 
 		count = count + 1;
+
+		// post to log count value (backend saves datetime automatically)
+
+		let r = fetch("https://w4390n0i.directus.app/items/Mining", {
+			method: "POST",
+			body: JSON.stringify({
+				game_id: gameId,
+				value: count,
+			}),
+			headers: {
+				"Content-type": "application/json; charset=UTF-8",
+			},
+		});
 		if (count == goal) {
 			emoji = "👑";
 		}
 	}
 
-	function incrementCount() {
-		count += 1;
-	}
-
 	function setGameValues(gameIdP, goalP) {
+		console.log("new game: ", gameIdP);
 		gameId = gameIdP;
-		goal = goalP;
-		console.log("setValues", gameId, goal);
+		goal = goalP; 
 		return "";
 	}
 
